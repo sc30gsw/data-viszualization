@@ -13,6 +13,7 @@ with open(filename) as f:
 # 地震情報の特徴を取得
 all_eq_dicts = all_eq_data['features']
 
+
 # マグニチュード
 mags: List[float] = []
 # 経度
@@ -25,7 +26,7 @@ hover_texts: List[str] = []
   (
     mags.append(eq_dict['properties']['mag']),
     lons.append(eq_dict['geometry']['coordinates'][0]),
-    lats.append(eq_dict['geometry']['coordinates'][1])  ,
+    lats.append(eq_dict['geometry']['coordinates'][1]),
     hover_texts.append(eq_dict['properties']['title'])
   ) 
   for eq_dict in all_eq_dicts
@@ -49,7 +50,8 @@ data: List[Dict[str, str | float]] = [{
   }
 }]
 # レイアウトの作成
-my_layout = Layout(title='世界の地震')
+title: str = all_eq_data['metadata']['title']
+my_layout = Layout(title=title)
 
 fig: Dict[str, Dict[str, str | float]] = {'data': data, 'layout': my_layout}
 # htmlファイルに出力する
