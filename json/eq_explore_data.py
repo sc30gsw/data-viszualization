@@ -35,7 +35,10 @@ lats: List[float] = []
 data: List[Dict[str, str | float]] = [{
   'type': 'scattergeo',
   'lon': lons,
-  'lat': lats
+  'lat': lats,
+  'marker': {
+    'size': [5 * mag for mag in mags],
+  }
 }]
 # レイアウトの作成
 my_layout = Layout(title='世界の地震')
