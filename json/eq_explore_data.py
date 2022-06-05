@@ -1,5 +1,5 @@
 import json
-from typing import List
+from typing import Dict, List
 from plotly.graph_objs import Scattergeo, Layout
 from plotly import offline
 
@@ -31,11 +31,16 @@ lats: List[float] = []
 # 地震の地図 → Scattergeoの引数に経度・緯度を渡すことで世界地図上にデータを点として描画する
 # Scattergeo自身は世界地図を作成する
 # データの作成
-data = [Scattergeo(lon=lons, lat=lats)]
+# data = [Scattergeo(lon=lons, lat=lats)]
+data: List[Dict[str, str | float]] = [{
+  'type': 'scattergeo',
+  'lon': lons,
+  'lat': lats
+}]
 # レイアウトの作成
 my_layout = Layout(title='世界の地震')
 
-fig = {'data': data, 'layout': my_layout}
+fig: Dict[str, Dict[str, str | float]] = {'data': data, 'layout': my_layout}
 # htmlファイルに出力する
 offline.plot(fig, filename='global_earthquakes.html')
 
