@@ -1,11 +1,12 @@
 import matplotlib.pyplot as plt
 
+input_value = [1, 2, 3, 4, 5]
 squares = [1, 4, 9, 16, 25]
 
 # グラフ領域の生成
 fig, ax = plt.subplots()
 # データを描画
-ax.plot(squares, linewidth=3)
+ax.plot(input_value, squares, linewidth=3)
 
 # グラフのタイトルと軸のラベルを設定する
 ax.set_title("Square Numbers", fontsize=24)
