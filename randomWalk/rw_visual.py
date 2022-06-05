@@ -5,7 +5,7 @@ from random_walk import RandomWalk
 # プログラムが動作している間、新しいランダムウォークを作成し続ける
 while True:
 # ランダムウォークを生成
-  rw = RandomWalk()
+  rw = RandomWalk(50_000)
   rw.fill_walk()
 
   # ランダムウォークの点を描画する
@@ -15,7 +15,7 @@ while True:
   # ランダムウォークの点にカラーマップを適用
   point_numbers = range(rw.num_points)
   ax.scatter(rw.x_values, rw.y_values, c=point_numbers, cmap=plt.cm.Blues,
-  edgecolors='none', s=15)
+  edgecolors='none', s=1)
 
   # 開始点と終了点を強調する
   ax.scatter(0, 0, c='green', edgecolors='none', s=100)
