@@ -6,8 +6,8 @@ input_value = [1, 2, 3, 4, 5]
 squares = [1, 4, 9, 16, 25]
 
 # 点を描画する場所を格納したリスト
-x_values = [1, 2, 3, 4, 5]
-y_values = [1, 4, 9, 16, 25]
+x_values = input_value[:]
+y_values = squares[:]
 
 # グラフのスタイルを設定
 plt.style.use('seaborn')
