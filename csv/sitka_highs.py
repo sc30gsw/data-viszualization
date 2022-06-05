@@ -13,12 +13,13 @@ with open(filename) as f:
   for index, column_header in enumerate(header_row):
     print(index, column_header)
   
-  # ファイルから最高気温と日付を取得する
+  # ファイルから最高気温、最低気温と日付を取得する
   hights: List[int] = []
+  lows: List[int] = []
   dates: List[datetime] = []
   # リスト内包表記の複数処理はタプルにする
   [
-    (hights.append(int(row[5])), dates.append(datetime.strptime(row[2], '%Y-%m-%d')))
+    (hights.append(int(row[5])), lows.append(int(row[6])) ,dates.append(datetime.strptime(row[2], '%Y-%m-%d')))
     for row in reader
   ]
 
@@ -26,9 +27,10 @@ with open(filename) as f:
   plt.style.use('seaborn')
   flg, ax = plt.subplots()
   ax.plot(dates, hights, c='red')
+  ax.plot(dates, lows, c='blue')
 
   # グラフにフォーマットを指定する
-  plt.title("Daily high temperatures, - 2018", fontsize=24)
+  plt.title("Daily high and low temperatures, - 2018", fontsize=24)
   plt.xlabel('', fontsize=16)
   flg.autofmt_xdate()
   plt.ylabel("Temperature (F)", fontsize=16)
