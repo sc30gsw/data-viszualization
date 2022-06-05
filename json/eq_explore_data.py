@@ -1,6 +1,6 @@
 import json
 from typing import Dict, List
-from plotly.graph_objs import Scattergeo, Layout
+from plotly.graph_objs import Layout
 from plotly import offline
 
 # データの構造を調査する
