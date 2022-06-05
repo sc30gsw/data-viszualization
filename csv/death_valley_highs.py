@@ -36,6 +36,8 @@ with open(filename) as f:
   flg, ax = plt.subplots()
   ax.plot(dates, hights, c='red', alpha=0.5)
   ax.plot(dates, lows, c='blue', alpha=0.5)
+  # 5-2 Y軸の範囲を設定
+  ax.set_ylim(20, 140)
   # グラフに陰影をつける(最高気温と最低気温の隙間)
   plt.fill_between(dates, hights, lows, facecolor='blue', alpha=0.1)
 
