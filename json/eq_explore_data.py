@@ -4,7 +4,7 @@ from plotly.graph_objs import Scattergeo, Layout
 from plotly import offline
 
 # データの構造を調査する
-filename = './data/eq_data_1_day_m1.json'
+filename = './data/eq_data_30_day_m1.json'
 # ファイルを読み込む
 with open(filename) as f:
   # jsonを読み込む
@@ -38,6 +38,10 @@ data: List[Dict[str, str | float]] = [{
   'lat': lats,
   'marker': {
     'size': [5 * mag for mag in mags],
+    'color': mags,
+    'colorscale': 'Viridis',
+    'reversescale': True,
+    'colorbar': {'title': 'マグニチュード'}
   }
 }]
 # レイアウトの作成
