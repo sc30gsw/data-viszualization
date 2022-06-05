@@ -1,5 +1,6 @@
 import csv
 from typing import Any, List
+import matplotlib.pyplot as plt
 
 filename = './data/sitka_weather_07-2018_simple.csv'
 with open(filename) as f:
@@ -14,4 +15,16 @@ with open(filename) as f:
   # ファイルから最高気温を取得する
   hights: List[int] = []
   [hights.append(int(row[5])) for row in reader]
-  print(hights)
+
+  # 最高気温のグラフを描画する
+  plt.style.use('seaborn')
+  flg, ax = plt.subplots()
+  ax.plot(hights, c='red')
+
+  # グラフにフォーマットを指定する
+  plt.title("Daily high temperatures, July 2018", fontsize=24)
+  plt.xlabel('', fontsize=16)
+  plt.ylabel("Temperature (F)", fontsize=16)
+  plt.tick_params(axis='both', which='major', labelsize=16)
+
+  plt.show()
