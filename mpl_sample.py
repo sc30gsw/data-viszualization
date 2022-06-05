@@ -30,4 +30,5 @@ ax.axis([0, 1100, 0, 1100000])
 # メモリのラベルのサイズを設定する
 ax.tick_params(axis='both', labelsize=14)
 
-plt.show()
+# グラフを保存する
+plt.savefig('squares_plot.png', bbox_inches='tight')
