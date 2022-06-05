@@ -14,7 +14,7 @@ plt.style.use('seaborn')
 
 # グラフ領域の生成
 fig, ax = plt.subplots()
-ax.scatter(x_values, y_values, c='red', s=10)
+ax.scatter(x_values, y_values, c=(0, 0.8, 0), s=10)
 # データを描画
 ax.plot(input_value, squares, linewidth=3)
 
