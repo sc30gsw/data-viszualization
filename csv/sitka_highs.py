@@ -19,15 +19,21 @@ with open(filename) as f:
   dates: List[datetime] = []
   # リスト内包表記の複数処理はタプルにする
   [
-    (hights.append(int(row[5])), lows.append(int(row[6])) ,dates.append(datetime.strptime(row[2], '%Y-%m-%d')))
+    (
+      hights.append(int(row[5])),
+      lows.append(int(row[6])),
+      dates.append(datetime.strptime(row[2], '%Y-%m-%d'))
+    )
     for row in reader
   ]
 
   # 最高気温のグラフを描画する
   plt.style.use('seaborn')
   flg, ax = plt.subplots()
-  ax.plot(dates, hights, c='red')
-  ax.plot(dates, lows, c='blue')
+  ax.plot(dates, hights, c='red', alpha=0.5)
+  ax.plot(dates, lows, c='blue', alpha=0.5)
+  # グラフに陰影をつける(最高気温と最低気温の隙間)
+  plt.fill_between(dates, hights, lows, facecolor='blue', alpha=0.1)
 
   # グラフにフォーマットを指定する
   plt.title("Daily high and low temperatures, - 2018", fontsize=24)
