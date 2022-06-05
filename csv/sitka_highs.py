@@ -3,7 +3,7 @@ from typing import Any, List
 import matplotlib.pyplot as plt
 from datetime import datetime
 
-filename = './data/sitka_weather_07-2018_simple.csv'
+filename = './data/sitka_weather_2018_simple.csv'
 with open(filename) as f:
   # 読み込みオブジェクトに指定したファイルオブジェクトを渡す
   reader: Any = csv.reader(f)
@@ -28,7 +28,7 @@ with open(filename) as f:
   ax.plot(dates, hights, c='red')
 
   # グラフにフォーマットを指定する
-  plt.title("Daily high temperatures, July 2018", fontsize=24)
+  plt.title("Daily high temperatures, - 2018", fontsize=24)
   plt.xlabel('', fontsize=16)
   flg.autofmt_xdate()
   plt.ylabel("Temperature (F)", fontsize=16)
