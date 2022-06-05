@@ -19,11 +19,14 @@ mags: List[float] = []
 lons: List[float] = []
 # 緯度
 lats: List[float] = []
+# 地震のタイトル情報
+hover_texts: List[str] = []
 [
   (
     mags.append(eq_dict['properties']['mag']),
     lons.append(eq_dict['geometry']['coordinates'][0]),
-    lats.append(eq_dict['geometry']['coordinates'][1])  
+    lats.append(eq_dict['geometry']['coordinates'][1])  ,
+    hover_texts.append(eq_dict['properties']['title'])
   ) 
   for eq_dict in all_eq_dicts
 ]
@@ -36,6 +39,7 @@ data: List[Dict[str, str | float]] = [{
   'type': 'scattergeo',
   'lon': lons,
   'lat': lats,
+  'text': hover_texts,
   'marker': {
     'size': [5 * mag for mag in mags],
     'color': mags,
