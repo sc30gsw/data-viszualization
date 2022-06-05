@@ -3,8 +3,12 @@ import matplotlib.pyplot as plt
 input_value = [1, 2, 3, 4, 5]
 squares = [1, 4, 9, 16, 25]
 
+# グラフのスタイルを設定
+plt.style.use('seaborn')
+
 # グラフ領域の生成
 fig, ax = plt.subplots()
+ax.scatter(2, 4, s=200)
 # データを描画
 ax.plot(input_value, squares, linewidth=3)
 
