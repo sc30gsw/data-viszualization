@@ -4,7 +4,7 @@ from random_walk import RandomWalk
 
 # プログラムが動作している間、新しいランダムウォークを作成し続ける
 while True:
-# ランダムウォークを生成
+  # ランダムウォークを生成
   rw: RandomWalk = RandomWalk()
   rw.fill_walk()
 

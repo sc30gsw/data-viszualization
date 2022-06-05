@@ -6,7 +6,6 @@ from die import Die
 # D6を作成する
 die_1 = Die()
 die_2 = Die()
-die_3 = Die()
 
 # サイコロを転がし結果をリストに格納する
 results = []
