@@ -1,5 +1,7 @@
 import json
 from typing import List
+from plotly.graph_objs import Scattergeo, Layout
+from plotly import offline
 
 # データの構造を調査する
 filename = './data/eq_data_1_day_m1.json'
@@ -26,9 +28,16 @@ lats: List[float] = []
   for eq_dict in all_eq_dicts
 ]
 
-print(mags[:10])
-print(lons[:10])
-print(lats[:10])
+# 地震の地図 → Scattergeoの引数に経度・緯度を渡すことで世界地図上にデータを点として描画する
+# Scattergeo自身は世界地図を作成する
+# データの作成
+data = [Scattergeo(lon=lons, lat=lats)]
+# レイアウトの作成
+my_layout = Layout(title='世界の地震')
+
+fig = {'data': data, 'layout': my_layout}
+# htmlファイルに出力する
+offline.plot(fig, filename='global_earthquakes.html')
 
 readable_file = './data/readable_eq_data.json'
 # ファイルに書き込む
