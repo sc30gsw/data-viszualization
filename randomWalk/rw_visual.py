@@ -5,7 +5,7 @@ from random_walk import RandomWalk
 # プログラムが動作している間、新しいランダムウォークを作成し続ける
 while True:
 # ランダムウォークを生成
-  rw = RandomWalk()
+  rw: RandomWalk = RandomWalk()
   rw.fill_walk()
 
   # ランダムウォークの点を描画する
@@ -14,7 +14,7 @@ while True:
   fig, ax = plt.subplots(figsize=(15, 9))
 
   # ランダムウォークの線にカラーマップを適用
-  point_numbers = range(rw.num_points)
+  point_numbers: int = range(rw.num_points)
   # 4-3 分子運動:ランダムウォークを線で描画
   ax.plot(rw.x_values, rw.y_values, linewidth=1)
 
@@ -29,6 +29,6 @@ while True:
   
   plt.show()
 
-  keep_runnning = input("別のランダムウォークを生成する?(y/n)")
+  keep_runnning: str = input("別のランダムウォークを生成する?(y/n)")
   if keep_runnning == 'n':
     break
