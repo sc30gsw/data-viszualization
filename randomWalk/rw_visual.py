@@ -10,7 +10,8 @@ while True:
 
   # ランダムウォークの点を描画する
   plt.style.use('classic')
-  fig, ax = plt.subplots()
+  # 描画する図のサイズを画面に合わせる(figsize=(縦, 横))
+  fig, ax = plt.subplots(figsize=(15, 9))
 
   # ランダムウォークの点にカラーマップを適用
   point_numbers = range(rw.num_points)
