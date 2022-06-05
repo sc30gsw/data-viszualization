@@ -10,3 +10,8 @@ with open(filename) as f:
   
   for index, column_header in enumerate(header_row):
     print(index, column_header)
+  
+  # ファイルから最高気温を取得する
+  hights: List[int] = []
+  [hights.append(int(row[5])) for row in reader]
+  print(hights)
