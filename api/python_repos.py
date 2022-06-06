@@ -8,9 +8,13 @@ from plotly import offline
 url = 'https://api.github.com/search/repositories?q=language:python&sort=stars'
 # GitHubAPIのバージョンを指定
 headers: Dict[str, str] = {'Accept': 'application/vnd.github.v3+json'}
+
 # APIにリクエストを送信
 r = requests.get(url, headers=headers)
-print(f"ステータスコード: {r.status_code}")
+
+def get_status_code(r):
+  """ステータスコードを返却する関数"""
+  return r.status_code
 
 # APIレスポンスを変数に格納する
 response_dict = r.json()
