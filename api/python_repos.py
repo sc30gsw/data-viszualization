@@ -35,12 +35,26 @@ data = [{
   'type': 'bar',
   'x': repo_names,
   'y': stars,
+  'marker': {
+    'color': 'rgb(60, 100, 150)',
+    'line': {'width': 1.5, 'color': 'rgb(25, 25, 25)'}
+  },
+  'opacity': 0.6,
 }]
 
 my_layout = {
   'title': 'GitHubで最も多くのスターがついているPythonプロジェクト',
-  'xaxis': {'title': 'リポジトリ'},
-  'yaxis': {'title': 'スターの数'},
+  'titlefont': {'size': 28},
+  'xaxis': {
+    'title': 'リポジトリ',
+    'titlefont': {'size': 24},
+    'tickfont': {'size': 14},
+  },
+  'yaxis': {
+    'title': 'スターの数',
+    'titlefont': {'size': 24},
+    'tickfont': {'size': 14},
+  },
 }
 
 fig = {'data': data, 'layout': my_layout}
